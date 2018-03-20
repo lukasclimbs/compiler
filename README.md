@@ -9,5 +9,7 @@ If you have ocaml installed on your machine, the only necessary steps should be 
 
 ### Assignment 1
 -features an echo-like program called repeat.
+
 -There is also a test suite for the program called tests.sh (see above for instructions on both).
+
 -There are currently no known bugs.
