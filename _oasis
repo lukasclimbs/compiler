@@ -9,5 +9,5 @@ BuildTools: ocamlbuild
 Plugins: META (0.4), DevFiles (0.4)
 Executable "repeat"
   Path: src
-  MainIs: repeat.ml
+  MainIs: compiler.ml
   CompiledObject: best
