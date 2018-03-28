@@ -4,7 +4,7 @@
 
 This repository is for my compiler, which I am building as part of my CSC312 class at Grinnell College.
 
-If you have ocaml installed on your machine, the only necessary steps should be to call 'make' in the command-line from the same directory. You can then run by calling './compiler.native example.file'. 
+If you have ocaml installed on your machine, the only necessary steps should be to call 'make' in the command-line from the directory that you have forked this repository into. You can then run basic program files by calling './compiler.native example.file'. 
 
 ## Changelog
 ### Assignment 1
