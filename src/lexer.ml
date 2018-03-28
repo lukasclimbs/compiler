@@ -58,7 +58,7 @@ let is_alpha (ch:char) : bool =
 let next_string (src: char Stream.t) (str: String.t) : bool =
   let spaces = String.length str in
     let newstring = String.concat "" (List.map Char.escaped (Stream.npeek spaces src)) in
-    advanced spaces src
+    advanced spaces src;
     newstring = str
 
 let is_bool_string (st: string) : bool =
