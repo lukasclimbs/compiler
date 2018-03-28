@@ -20,7 +20,7 @@ let rec parse (tkns:token list) : (exp * token list) =
     match peek tkns with
     | Tint n  -> (EInt n, advance tkns)
     | Tbool n -> (EBool n, advance tkns)
-    | Tlparen -> 
+    | Tlparen ->
       let tkns       = consume Tlparen tkns in
       let tok        = peek tkns in
       let tkns       = consume tok tkns in
@@ -42,19 +42,3 @@ let rec parse (tkns:token list) : (exp * token list) =
                | Tloq  -> (ELoq (e1, e2), tkns)
                | t     -> failwith (Printf.sprintf "Unexpected token found : %s" (string_of_token t)))
     | t       -> failwith (Printf.sprintf "Unexpected token found : %s" (string_of_token t))
-
-       
-      (*let tkns       = consume Trparen tkns in
-        match tok with
-        | (Tif -> let (e1, tkns) = parse tkns in
-         let (e2, tkns) = parse tkns in
-         let (e3, tkns) = parse tkns in
-         (Tif (e1, e2, e3), tkns))
-        | t -> match t with
-      (*let tkns       = consume Trparen tkns (*in*)*)
-               | Tplus -> (EAdd (e1, e2), tkns)
-               | Tmin  -> (EMin (e1, e2), tkns)
-               | Tdiv  -> (EDiv (e1, e2), tkns)
-               | Tmult -> (EMult (e1, e2), tkns)
-               | Tloq  -> (ELoq (e1, e2), tkns)
-               | _     -> failwith (Printf.sprintf "Unexpected token found : %s" (string_of_token t))*)

@@ -8,14 +8,6 @@ type exp =
   | ELoq of exp * exp (* less than or equal to*)
   | EIf of exp * exp * exp
 
-(*let rec interpret_bool (e:exp) : bool =
-  match e with
-  | EBool n          -> n
-  | ELoq (e1, e2)    -> interpret e1 <= interpret e2
-  | _                ->
-    failwith "Error: An unknown value appeared where a bool should be."
-and*)
-
 let string_of_exp (e:exp) : string =
   match e with
   | EInt n  -> string_of_int n

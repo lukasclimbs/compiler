@@ -33,10 +33,14 @@ let peek (src:char Stream.t) : char =
 
 let advance : char Stream.t -> char = Stream.next
 
-let rec advanced n src =
-  if not(n = 0) then
-   advance src |> ignore;
-   advanced (n - 1) src
+let rec advanced (n : int) src =
+  if n = 0 then
+    ()
+  else
+    begin
+      advance src |> ignore;
+      advanced (n - 1) src
+    end
 
 let is_empty (src:char Stream.t) : bool =
   try
