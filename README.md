@@ -17,7 +17,9 @@ If you have ocaml installed on your machine, the only necessary steps should be 
 ### Assignment 2
 -I now have a basic compiler! This compiler can do arithmetic and features booleans, an if/else expression, and a <= operator.
 
--The oasis and makefile have been updated to compile compiler.ml instead of repeat.ml
+-The oasis and makefile have been updated to compile compiler.ml instead of repeat.ml.
+
+-When compiling, you will get a warning that a pattern matching case in Lang will not be used. It's a redundancy that I'm including at this step, that I will edit out in future versions.
 
 -I have included example .arith files to show off basic syntax. Follow the instructions above to test out the files. I have put example1.arith in the same path that you call the program for so that should be good to go. Otherwise, for the files in the Examples folder, you'll have to move them or specify their path.
 
