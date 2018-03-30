@@ -68,6 +68,24 @@ let next_string (src: char Stream.t) (str: String.t) : bool =
 let is_bool_string (st: string) : bool =
   "true" = st || st = "false"
 
+let rec string_of_tokens (tkns : token list) : string =
+    match tkns with
+    | (Tint n)::tkns'   -> string_of_int n ^ "," ^ string_of_token_list tkns'
+    | (Tbool n)::tkns' -> string_of_bool n ^ "," ^ string_of_token_list tkns'
+    | (Tlparen)::tkns' -> "(," ^ string_of_tokens tkns'
+    | (Trparen)::tkns' -> ")," ^ string_of_tokens tkns'
+    | (Tplus)::tkns'   -> "+," ^ string_of_tokens tkns'
+    | (Tmin)::tkns'    -> "-," ^ string_of_tokens tkns'
+    | (Tdiv)::tkns'    -> "/," ^ string_of_tokens tkns'
+    | (Tmult)::tkns'   -> "*," ^ string_of_tokens tkns'
+    | (Tif)::tkns'     -> "if," ^ string_of_tokens tkns'
+    | (Tloq)::tkns'    -> "<=," ^ string_of_tokens tkns'
+    | _                -> ""
+
+let string_of_token_list (tkns : token list) : string =
+  "[" ^ (string_of_tokens tkns) ^ "]"
+
+
 let lex (src:char Stream.t) : token list =
   let rec lex_dig acc =
     if is_digit (peek src) then

@@ -1,13 +1,14 @@
-Name: repeat
-Version: 0.1
-Synopsis: Mimics the shell command echo, but with a help and length flag.
-Authors: Lukas Resch
-License:LGPL with OCAml linking exception
-
 OASISFormat: 0.4
-BuildTools: ocamlbuild
-Plugins: META (0.4), DevFiles (0.4)
-Executable "repeat"
-  Path: src
-  MainIs: compiler.ml
+Name:        compiler
+Version:     0.3
+Synopsis:    A basic compiler with expressions for arithmetic and booleans.
+Authors:     Lukas Resch
+License:     LGPL-2.1 with OCaml linking exception
+Plugins:     META (0.4)
+Executable compiler
+  Path:       src
+  BuildTools: ocamlbuild
+  MainIs:     compiler.ml
   CompiledObject: best
+Test lex_and_parser_pipeline
+  Command: sh test.sh

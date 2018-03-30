@@ -13,6 +13,19 @@ let rec consume (t:token) (tkns:token list) : token list =
       failwith(Printf.sprintf "Expected '%s', found '%s'" (string_of_token t) (string_of_token t'))
   | _ -> failwith "Encountered unexpected end of token stream"
 
+let rec string_of_exp (e: exp) : string =
+  match e with
+  | EInt n           -> string_of_int n
+  | EBool n          -> string_of_bool n
+  | EAdd (e1, e2)    -> "(+ " ^ string_of_exp e1 ^ " " ^ string_of_exp e2 ^ ")"
+  | EMult (e1, e2)   -> "(* " ^ string_of_exp e1 ^ " " ^ string_of_exp e2 ^ ")"
+  | EDiv (e1, e2)    -> "(/ " ^ string_of_exp e1 ^ " " ^ string_of_exp e2 ^ ")"
+  | EMin (e1, e2)    -> "(- " ^ string_of_exp e1 ^ " " ^ string_of_exp e2 ^ ")"
+  | ELoq (e1, e2)    -> "(<= " ^ string_of_exp e1 ^ " " ^ string_of_exp e2 ^ ")"
+  | EIf (e1, e2, e3) -> "(if " ^ string_of_exp e1 ^ " " ^ string_of_exp e2 ^ " "
+      ^ string_of_exp e3 ^ ")"
+
+
 let rec parse (tkns:token list) : (exp * token list) =
   if List.length tkns = 0 then
     failwith "Unexpected end of token stream"
