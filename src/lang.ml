@@ -8,11 +8,19 @@ type exp =
   | ELoq of exp * exp (* less than or equal to*)
   | EIf of exp * exp * exp
 
-let string_of_exp (e:exp) : string =
+
+let rec string_of_exp (e: exp) : string =
   match e with
-  | EInt n  -> string_of_int n
-  | EBool n -> string_of_bool n
-  | _       -> failwith "The compiler did not evaluate your expression down to a single value. This is horrible."
+  | EInt n           -> string_of_int n
+  | EBool n          -> string_of_bool n
+  | EAdd (e1, e2)    -> "(+ " ^ string_of_exp e1 ^ " " ^ string_of_exp e2 ^ ")"
+  | EMult (e1, e2)   -> "(* " ^ string_of_exp e1 ^ " " ^ string_of_exp e2 ^ ")"
+  | EDiv (e1, e2)    -> "(/ " ^ string_of_exp e1 ^ " " ^ string_of_exp e2 ^ ")"
+  | EMin (e1, e2)    -> "(- " ^ string_of_exp e1 ^ " " ^ string_of_exp e2 ^ ")"
+  | ELoq (e1, e2)    -> "(<= " ^ string_of_exp e1 ^ " " ^ string_of_exp e2 ^ ")"
+  | EIf (e1, e2, e3) -> "(if " ^ string_of_exp e1 ^ " " ^ string_of_exp e2 ^ " "
+      ^ string_of_exp e3 ^ ")"
+
 
 let rec interpret (e:exp) : exp =
   match e with
@@ -38,4 +46,3 @@ let rec interpret (e:exp) : exp =
   | ELoq (e1, e2)    -> (match (interpret e1, interpret e2) with
                         | (EInt a1, EInt a2) -> EBool (a1 <= a2)
                         | _ -> failwith "likely type mismatch")
-  | _                -> failwith "Unknown expression encountered."

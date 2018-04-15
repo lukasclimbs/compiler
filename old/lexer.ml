@@ -23,9 +23,6 @@ let string_of_token (t:token) : string =
   | Tif     -> "if"
   | Tloq    -> "<="
 
-let string_of_token_list (tkns: token list) : string =
-  String.concat "," (List.map string_of_token tkns)
-
 let peek (src:char Stream.t) : char =
   match Stream.peek src with
   | Some ch -> ch
@@ -70,8 +67,8 @@ let is_bool_string (st: string) : bool =
 
 let rec string_of_tokens (tkns : token list) : string =
     match tkns with
-    | (Tint n)::tkns'   -> string_of_int n ^ "," ^ string_of_token_list tkns'
-    | (Tbool n)::tkns' -> string_of_bool n ^ "," ^ string_of_token_list tkns'
+    | (Tint n)::tkns'   -> string_of_int n ^ "," ^ string_of_tokens tkns'
+    | (Tbool n)::tkns' -> string_of_bool n ^ "," ^ string_of_tokens tkns'
     | (Tlparen)::tkns' -> "(," ^ string_of_tokens tkns'
     | (Trparen)::tkns' -> ")," ^ string_of_tokens tkns'
     | (Tplus)::tkns'   -> "+," ^ string_of_tokens tkns'
