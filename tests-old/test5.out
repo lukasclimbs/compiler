@@ -1,4 +1,0 @@
-Usage: my-project [flags] [args]
-  -length prints the lengths of the arguments
-  -help  Display this list of options
-  --help  Display this list of options
