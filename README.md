@@ -47,3 +47,28 @@ Lastly, here are the expected results of compiling/running the example files:
 -Example7.arith: 3
 
 -Example8.arith: 4
+
+### Assignment 3
+
+-For part 1 of assignment 3, I tested the lexing and parsing pipeline. If you go into the history of the repo and download that section specifically, you can call it from the terminal with 'make test'.
+
+-For  part 2 of assignment 3, I integrated lexing and parsing generators to my language. At this point, only the parsing section of the test suite can run, as I don't have access to the lexing stream anymore.
+
+-For part 3 I now have infix notation for my language! Here is the general grammar: 
+
+e ::= n | (e) | e1 + e1 | e1 - e2 | e1 * e2 | e1 / e2
+        | true | false | e1 <= e2 | if e1 then e2 else e3
+
+Note that parentheses are no longer necessary, but pay careful attention to the precedence of these expressions and use parens where appropriate.
+
+The precedence and associativity of these operators are as follows:
+
+Lowest precedence: if then else, less than or equals
+Medium precedence: plus, minus
+Highest precedence: multiplication, division
+
+All are currently implemented as left associative.
+
+-Currently two warnings will appear, one declaring that the tests flag is not used. And the other claiming that the precedence given to if then is never useful. I have tried every other precedence and associativity, but this all had the same warning and this position seemed the most logical.
+
+-Also note that the example.src files have been altered for informal testing on my part and they will no longer work for the test suite from parts 1 and 2. Make sure to revert to those versions.

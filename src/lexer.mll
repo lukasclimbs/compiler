@@ -16,7 +16,10 @@ let string_of_token (t:token) : string =
   | DIV    -> "/"
   | LOQ    -> "<="
   | IF     -> "if"
+  | THEN   -> "then"
+  | ELSE   -> "else"
   | EOF    -> "EOF"
+
 
 let string_of_token_list (tkns : token list) : string =
   "[" ^ (String.concat "," (List.map string_of_token tkns)) ^ "]"
@@ -51,4 +54,6 @@ rule token = parse
   | "<="                              { LOQ }
   | "true" | "false"                  { BOOL (create_bool lexbuf) }
   | "if"                              { IF }
+  | "then"                            { THEN }
+  | "else"                            { ELSE }
   | _ as c { raise @@ Lexer_error ("Unexpected character: " ^ Char.escaped c) }
