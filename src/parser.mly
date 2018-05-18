@@ -25,9 +25,11 @@ open Lang
 %token EOF
 
 %left IF THEN ELSE
-%left PLUS MINUS
-%left MULT DIV
 %left LET IN FUN ARROW
+%left MULT DIV
+%left PLUS MINUS
+
+
 
 
 %start <Lang.exp> prog
@@ -38,7 +40,7 @@ prog:
   | e=exp EOF                             { e }
 
 exp:
-  | FUN n=exp ARROW e=exp                 {EFun (n, e)}
+  | FUN n=VAR ARROW e=exp                 {EFun (n, e)}
   | i = INT                               {EInt i}
   | b = BOOL                              {EBool b}
   | v = VAR                               { EVar v }
