@@ -7,7 +7,7 @@ let compile arg =
   if !parse then
     Lang.string_of_exp e |> print_endline
   else
-    Lang.interpret e |> Lang.string_of_exp |> print_endline
+    Lang.interpret e |> Lang.string_of_val |> print_endline
 
 let main () =
   begin
