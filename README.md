@@ -75,8 +75,12 @@ All are currently implemented as left associative.
 
 ### Assignment 4
 -Assignment 4 is done (kinda)! 
+
 -Here is the current semantics:
+
 e ::= n | b | e1 (+) e2 | if e1 then e2 else e3
     | x | let x = e1 in e2 | fun x -> e | e1 e2
+    
 -Functions are buggy so put parens around the body to be careful.
 -Finally fixed some other precedence issues.
+
