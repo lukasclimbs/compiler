@@ -32,16 +32,16 @@ open Lang
 %token NAND
 %token XOR
 %token XNOR
-(*%token WHILE*)
-(*%token DO*)
-(*%token REF
+%token WHILE
+%token DO
+%token REF
 %token ASS
-%token DER*)
+%token DER
 
 
 %left RARROW
-%left LET IN  EQUALS FUN ARROW (*REF ASS DER*)
-%left IF THEN ELSE (*DO wWHILE*)
+%left LET IN  EQUALS FUN ARROW REF ASS DER
+%left IF THEN ELSE DO wWHILE
 %left LOQ AND OR NOT XNOR XOR NAND NOR
 %left MULT DIV
 %left PLUS MINUS VAR
@@ -80,12 +80,4 @@ exp:
   | v=exp RARROW e=exp                    { ECall (v, e) }
   
 
-(*expB:
- | FUN n=exp ARROW e=exp     {EFun (n, e)}
- | i = INT                   {EInt i}
- | b = BOOL                  {EBool b}
- | LPAREN e=exp RPAREN       { e }
-
-label:
- | v = VAR                   {EVar v}*)
 
