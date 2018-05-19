@@ -93,3 +93,4 @@ e ::= n | b | e1 (+) e2 | if e1 then e2 else e3
 
 -Adding formal testing for typechecking later.
 
+-You now must write the type of the variable (either int or bool) when making a function declaration.
