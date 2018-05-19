@@ -28,6 +28,14 @@ let string_of_token (t:token) : string =
   | TINT   -> "TInt"
   | TBOOL  -> "TBool"
   | RARROW -> "<-"
+  | AND    -> "and"
+  | OR     -> "or"
+  | NOR    -> "nor"
+  | XOR    -> "xor"
+  | NOT    -> "not"
+  | NAND   -> "nand"
+  | XNOR   -> "xnor"  
+
   
 
 let string_of_token_list (tkns : token list) : string =
@@ -75,5 +83,12 @@ rule token = parse
   | "int"                             { TINT }
   | "bool"                            { TBOOL }
   | "<-"                              { RARROW }
+  | "and"                             { AND }
+  | "or"                              { OR }
+  | "xor"                             { XOR }
+  | "not"                             { NOT }
+  | "nor"                             { NOR }
+  | "nand"                            { NAND }
+  | "xnor"                            { XNOR }
   | names+                            { VAR (lexeme lexbuf) } 
   | _ as c { raise @@ Lexer_error ("Unexpected character: " ^ Char.escaped c) }
