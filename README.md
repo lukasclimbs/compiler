@@ -94,3 +94,11 @@ e ::= n | b | e1 (+) e2 | if e1 then e2 else e3
 -Adding formal testing for typechecking later.
 
 -You now must write the type of the variable (either int or bool) when making a function declaration.
+
+
+### Project
+-I have completed the project. In the implementation are the boolean operators not, and, or, xor, nor, nand, and xnor.
+
+-The syntax for all of them is infix notation between booleans with the exception of not, which only takes one argument.
+
+-Their behavior works the same as the standard definitions of such functions.
