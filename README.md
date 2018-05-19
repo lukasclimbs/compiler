@@ -95,9 +95,12 @@ e ::= n | b | e1 (+) e2 | if e1 then e2 else e3
 
 -You now must write the type of the variable (either int or bool) when making a function declaration.
 
+### Assignment 6
+- This assignment is incomplete and will not compile. I have attempts at both reference cells and while loops, but no final product.
+
 
 ### Project
--I have completed the project. In the implementation are the boolean operators not, and, or, xor, nor, nand, and xnor.
+-I have completed the project. In the implementation are the boolean operators not, and, or, xor, nor, nand, and xnor. This code compiles and was submitted before assignment 6
 
 -The syntax for all of them is infix notation between booleans with the exception of not, which only takes one argument.
 
