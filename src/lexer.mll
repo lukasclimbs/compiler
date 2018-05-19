@@ -25,6 +25,9 @@ let string_of_token (t:token) : string =
   | FUN    -> "fun"
   | ARROW  -> "->"
   | EQUALS -> "="
+  | TINT   -> "TInt"
+  | TBOOL  -> "TBool"
+  | RARROW -> "<-"
   
 
 let string_of_token_list (tkns : token list) : string =
@@ -69,5 +72,8 @@ rule token = parse
   | "fun"                             { FUN }
   | "->"                              { ARROW }
   | "="                               { EQUALS }
-  | names+(names)*                    { VAR (lexeme lexbuf) } 
+  | "int"                             { TINT }
+  | "bool"                            { TBOOL }
+  | "<-"                              { RARROW }
+  | names+                            { VAR (lexeme lexbuf) } 
   | _ as c { raise @@ Lexer_error ("Unexpected character: " ^ Char.escaped c) }

@@ -7,7 +7,10 @@ let compile arg =
   if !parse then
     Lang.string_of_exp e |> print_endline
   else
+  begin 
+    ignore(Lang.typecheck [] e);
     Lang.interpret e |> Lang.string_of_val |> print_endline
+  end
 
 let main () =
   begin
