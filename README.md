@@ -84,3 +84,12 @@ e ::= n | b | e1 (+) e2 | if e1 then e2 else e3
 -Functions are buggy so put parens around the body to be careful.
 -Finally fixed some other precedence issues.
 
+### Assignment 5
+-Assignment 5 is also kinda done!
+
+-Before staging this commit, functions were called with a backwards arrow (<-) between the function and the argument. For some reason it has stopped working. I'll circle back to this if I have time.
+
+-Typechecking now works! There's a built-in typechecker that, to my informal tests, looks correct.
+
+-Adding formal testing for typechecking later.
+
