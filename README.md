@@ -72,3 +72,15 @@ All are currently implemented as left associative.
 -Currently two warnings will appear, one declaring that the tests flag is not used. And the other claiming that the precedence given to if then is never useful. I have tried every other precedence and associativity, but this all had the same warning and this position seemed the most logical.
 
 -Also note that the example.src files have been altered for informal testing on my part and they will no longer work for the test suite from parts 1 and 2. Make sure to revert to those versions.
+
+### Assignment 4
+-Assignment 4 is done (kinda)! 
+
+-Here is the current semantics:
+
+e ::= n | b | e1 (+) e2 | if e1 then e2 else e3
+    | x | let x = e1 in e2 | fun x -> e | e1 e2
+    
+-Functions are buggy so put parens around the body to be careful.
+-Finally fixed some other precedence issues.
+
